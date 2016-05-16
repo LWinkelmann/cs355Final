@@ -3,8 +3,8 @@
  */
 
 exports.config = {
-    user: "winkelmann",
-    password: "004246624",
+    user: "",
+    password: "",
     host: "blue.cs.sonoma.edu",
     database: "winkelmann"
 };
