@@ -1,0 +1,57 @@
+<% include partials/header %>
+<% include partials/navigation %>
+<!DOCTYPE html>
+<html>
+<div class="wrapper">
+<head>
+    <title>Create A new Grade Keeper Account</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<div class="wrapper animated bounceInDown">
+<body>
+<h1>Welcome to the account creation page</h1>
+<p>Please fill out the form below to create a account</p>
+
+<br />
+
+<form action="/create/user" id="formz">
+    <div>
+        <label for="firstName">* First Name:</label>
+        <input type="text" name="firstN" id="name"
+               placeholder="Enter your name" required="required" />
+    </div>
+    <div>
+        <label for="middleI">Middle Initial:</label>
+        <input type="text" name="middleI" id="mI"
+               placeholder="Enter your middle initial" />
+    </div>
+    <div>
+        <label for="lastN">* Last Name:</label>
+        <input type="text" name="lastN" id="lN"
+               placeholder="Enter your lastName" required="required" />
+    </div>
+    <div>
+        <label for="username">* Username:</label>
+        <input type="text" name="username" id="username"
+               placeholder="Enter your desired username" required="required" />
+    </div>
+    <div>
+        <label for="password">* Password:</label>
+        <input type="password" name="password" id="password"
+               placeholder="Enter your desired username" required="required" />
+    </div>
+    <div>
+        <label for="email">* Email Adress:</label>
+        <input type="text" name="email" id="email"
+               placeholder="Enter your email adress" required="required" />
+    </div>
+    <input type="submit" name="submit"><br>
+</form>
+
+
+
+</body>
+</div>
+</div>
+</html>
+<% include partials/footer %>

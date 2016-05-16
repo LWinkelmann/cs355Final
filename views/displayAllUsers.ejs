@@ -1,0 +1,36 @@
+<% include partials/header %>
+<% include partials/navigation %>
+
+<div class="wrapper">
+<div>
+    <% if(rs.length > 0) { %>
+    <table class="table">
+        <h1 align="center" style="color:Black">All Users</h1>
+        <tr>
+            <td>Username</td>
+            <td>First Name</td>
+            <td>Middle Inital</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Delete</td>
+        </tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/users/?user_id=<%= rs[i].Id %>"> <%= rs[i].Username %></td>
+            <td><%= rs[i].FirstName %></td>
+            <td><%= rs[i].MiddleInital %></td>
+            <td><%= rs[i].LastName %></td>
+            <td><%= rs[i].Email %></td>
+            <td><a href="/users/delete/?user_id=<%= rs[i].Id %>" class="button hvr-border-fade">Delete</a></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    <h1>User deleted</h1>
+    <a href="/users/all">Click here to go back!</a>
+    <% } %>
+</div>
+
+
+</div>
+<% include partials/footer %>

@@ -1,0 +1,40 @@
+<% include partials/header %>
+<% include partials/navigation %>
+
+<div class="wrapper">
+    <head>
+        <title>Add a new class</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <div class="wrapper animated bounceInDown">
+        <body>
+        <h1>Add a new class to your profile</h1>
+        <p>Or fill out the form below to add a new class</p>
+
+        <br />
+
+        <form action="/create/class" id="formz">
+            <div>
+                <label for="Department">* Department:</label>
+                <input type="text" name="dep" id="dep"
+                       placeholder="Enter the department" required="required" />
+            </div>
+            <div>
+                <label for="ClassNum">Class Number:</label>
+                <input type="text" name="classnum" id="classnum"
+                       placeholder="Enter the class number ( Example: 101 )" />
+            </div>
+            <div>
+                <label for="Name">Class Name</label>
+                <input type="text" name="classname" id="classname"
+                       placeholder="Enter the class name" required="required" />
+            </div>
+            <input type="submit" class="button hvr-border-fade" name="submit"><br>
+        </form>
+
+
+
+        </body>
+    </div>
+
+<% include partials/footer %>

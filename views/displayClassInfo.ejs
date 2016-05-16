@@ -1,0 +1,47 @@
+<% include partials/header %>
+<% include partials/navigation %>
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div class="wrapper" align="center">
+    <p1>This is the <%= rs[0].Class_Number %> <%= rs[0].Name %> page</p1>
+    <br />
+    <p3>Here is the class information</p3>
+    <% if(rs.length > 0) { %>
+    <table class="table">
+        <tr>
+            <td>Class Number</td>
+            <td>Class Name</td>
+        </tr>
+        <tr>
+            <td><%= rs[0].Class_Number %></td>
+            <td><%= rs[0].Name %></td>
+        </tr>
+    </table>
+
+    <p1>Here are the sections being offered for this class</p1>
+    <table class="table">
+        <tr>
+            <td>Teacher</td>
+            <td>Building</td>
+            <td>Class Room Number</td>
+        </tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><%= rs[i].Teacher %></td>
+            <td><%= rs[i].Building %></td>
+            <td><%= rs[i].RoomNumber %></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No sections exist for this course.
+    <% } %>
+
+</div>
+
+</body>
+</html>
+<% include partials/footer %>

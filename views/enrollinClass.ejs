@@ -1,0 +1,63 @@
+<% include partials/header %>
+<% include partials/navigation %>
+
+<div class="wrapper" style="text-align: center">
+    <head>
+        <title>Enroll in a Existing class</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <body>
+    <div class="wrapper animated bounceInDown">
+        <h1>Enroll in a class</h1>
+        </br>
+
+
+        <form action="/create/enroll" >
+            <select name="sectionId">
+                <% for (var i=0; rs.length > i; i++) { %>
+                <option value="<%= rs[i].section_id %>"><%= rs[i].Department %> <%= rs[i].Class_Number %> <%= rs[i].Name %> <%= rs[i].Teacher %> <%= rs[i].Building %></option>
+                <% } %>
+            </select>
+            <br><br>
+            <Button type="submit" class="button hvr-border-fade" align="center" name="Enroll"> Enroll</Button>
+        </form>
+        </br>
+        <p1>Or</p1> </br>
+        </br>
+        <a href="/classes/create" class="button hvr-border-fade"> Create a new Class</a>
+        </br>
+        </br>
+        <p1>Or</p1>
+        <h3>Add another section to a Section of a class!</h3>
+        <h4 style="color: red">Please note that you can not register for a class unless it has a section</h4>
+        <form action="/create/section">
+            <select name="classId">
+                <% for (var i=0; rs.length > i; i++) { %>
+                <option value="<%= classes[i].Id %>"><%= classes[i].Department %> <%= classes[i].Class_Number %> <%= classes[i].Name %></option>
+                <% } %>
+            </select>
+            <br><br>
+            <div>
+                <label for="Teacher">* Teacher:</label>
+                <input type="text" name="teacher" id="teacher"
+                       placeholder="Enter the teacher" required="required" />
+            </div>
+            <div>
+                <label for="Building">* Building:</label>
+                <input type="text" name="building" id="building"
+                       placeholder="Enter the building" />
+            </div>
+            <div>
+                <label for="Room Number">* Room Number</label>
+                <input type="text" name="roomnum" id="roomnum"
+                       placeholder="Enter the room number" required="required" />
+            </div>
+            <Button type="submit" class="button hvr-border-fade" align="center">Create Section</Button>
+        </form>
+
+    </div>
+    </body>
+</div>
+</div>
+
+<% include partials/footer %>

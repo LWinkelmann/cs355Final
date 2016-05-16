@@ -1,0 +1,46 @@
+<% include partials/header %>
+<% include partials/navigation %>
+<head>
+</head>
+<body>
+<div class="wrapper" align="center">
+    <% if(rs.length > 0) { %>
+    <p3>Welcome <%=account.Firstname %> <%=account.Lastname %>! </p3>
+    <br />
+    <p3>Here are your Classes:</p3>
+    <table class="table">
+        <tr>
+            <td>Class Number</td>
+            <td>Class Name</td>
+            <td>Department</td>
+            <td>Teacher</td>
+            <td>Building</td>
+            <td>Room Number</td>
+        </tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/users/grade/?enroll_id=<%= rs[i].Enrollment_Id %>"><%= rs[i].Class_Number %> </a></td>
+            <td><%= rs[i].Name %></td>
+            <td><%= rs[i].Department %></td>
+            <td><%= rs[i].Teacher %></td>
+            <td><%= rs[i].Building %></td>
+            <td><%= rs[i].RoomNumber %></td>
+        </tr>
+        <% } %>
+    </table>
+    </br>
+    <a href="/classes/create" class="button hvr-border-fade">Add a new class</a>
+    <p1>OR</p1>
+    <a href="/classes/enroll" class="button hvr-border-fade">Enroll in a class</a>
+    <% } else { %>
+    <p3>Welcome <%=account.Firstname %> <%=account.Lastname %>! </p3>
+    <p3>It appears that you have not added any classes to your account!</p3>
+    <a href="/classes/create" class="button hvr-border-fade">Create a new class</a>
+    <p1>OR</p1>
+    <a href="/classes/enroll" class="button hvr-border-fade">Enroll in a class</a>
+    <% } %>
+</div>
+
+</body>
+
+<% include partials/footer %>

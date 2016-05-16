@@ -1,0 +1,33 @@
+<% include partials/header %>
+<% include partials/navigation %>
+
+<div class="wrapper">
+<div>
+    <% if(rs.length > 0) { %>
+    <h1 align="center">All Classes</h1>
+    <table class="table">
+        <tr>
+            <td>Class Number</td>
+            <td>Class Name</td>
+            <td>Department</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/classes/?class_id=<%= rs[i].Id %>"> <%= rs[i].Class_Number %></a></td>
+            <td><%= rs[i].Name %></td>
+            <td><%= rs[i].Department %></td>
+            <td><a href="/classes/edit/?class_id=<%= rs[i].Id %>" class="button hvr-border-fade"> Edit </a> </td>
+            <td><a href="/classes/delete/?class_id=<%= rs[i].Id %>" class="button hvr-border-fade"> Delete </a> </td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    <h1>Class deleted</h1>
+    <a href="/classes/all">Click here to go back!</a>
+    <% } %>
+</div>
+
+</div>
+<% include partials/footer %>

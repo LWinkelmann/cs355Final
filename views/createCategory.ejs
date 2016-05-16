@@ -1,0 +1,38 @@
+<% include partials/header %>
+<% include partials/navigation %>
+<!DOCTYPE html>
+<html>
+<div class="wrapper">
+    <head>
+        <title>Create A new Grade Keeper Account</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <div class="wrapper animated bounceInDown">
+        <body>
+        <h1>Welcome to the account creation page</h1>
+        <p>Please fill out the form below to create a account</p>
+
+        <br />
+
+        <form action="/create/category" id="formz">
+            <div>
+                <label for="Name">* Category Name:</label>
+                <input type="text" name="Name" id="Name"
+                       placeholder="Quiz, Homework, Exam, etc..." required="required" />
+            </div>
+            <div>
+                <label for="weight">Percentage Weight:</label>
+                <input type="text" name="weight" id="weight"
+                       placeholder="number less than 1. 20% = 0.20" />
+                <input type="hidden" value="<%= enroll %>" name="enroll_id">
+            </div>
+            <button class="button hvr-border-fade" type="submit"> Add Category</button>
+        </form>
+
+
+
+        </body>
+    </div>
+</div>
+</html>
+<% include partials/footer %>

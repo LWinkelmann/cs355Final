@@ -1,0 +1,32 @@
+<% include partials/header %>
+<% include partials/navigation %>
+<!DOCTYPE html>
+<html>
+<body>
+<div class="wrapper">
+    <h1>This is the edit CLASS page</h1>
+    <h3>Here is the class information:</h3>
+    <form action="/edit/" id="formz">
+        <div>
+            <label for="cNumber">* Class Number:</label>
+            <input type="text" name="num" id="Number"
+                   placeholder="Enter the class number" required="required" />
+        </div>
+        <div>
+            <label for="cName">* Class Name:</label>
+            <input type="text" name="cName" id="Name"
+                   placeholder="Enter the class name / title" required="required" />
+        </div>
+        <div>
+            <label for="dept">* Department:</label>
+            <input type="text" name="dept" id="Department"
+                   placeholder="Enter the department that this class belongs too" required="required" />
+        </div>
+        <input type="submit" value="Make Changes" class="hvr-back-pulse button">
+    </form>
+</div>
+
+</body>
+</div>
+</html>
+<% include partials/footer %>

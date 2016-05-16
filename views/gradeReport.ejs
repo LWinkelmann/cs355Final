@@ -1,0 +1,77 @@
+<% include partials/header %>
+<% include partials/navigation %>
+
+
+<div class="wrapper" align="center">
+    <% if(category.length > 0) { %>
+    <Legend>Your Grades In This Class</Legend>
+    <a href="/users/createCategory/?enroll_id=<%= enroll %>" class="button hvr-border-fade">Add a category</a>
+    <table class="table">
+    <tr>
+        <th>Category name</th>
+        <th>Weight ( 0.0 - 1.0 )</th>
+        <th>Delete</th>
+    </tr>
+        <% for (var i=0; category.length > i; i++) { %>
+        <tr>
+            <td><%= category[i].CategoryName %> </td>
+            <td><%= category[i].Weight %></td>
+            <td><a href="/users/deleteCategory/?category_id=<%= category[i].Id%>&enroll_id=<%= enroll %>">Delete</a></td>
+        </tr>
+
+        <% } %>
+    </table>
+    </br>
+    <% for (var i=0; category.length > i; i++) { %>
+        <h1><%= category[i].CategoryName %> </h1>
+        <h3>Weight: <%= category[i].Weight %></h3>
+        <% if (grades.length > 0) { %>
+            <table class="table">
+                <th> Score </th>
+                <th> Possible Score</th>
+        <% for (var j=0; grades.length > j; j++) { %>
+            <% if (category[i].Id == grades[j].CategoryId) { %>
+                <tr>
+                    <td> <%= grades[j].Score %></td>
+                    <td> <%= grades[j].MaxScore %></td>
+                </tr>
+        <% } %>
+                <% } %>
+
+            </table>
+    <% } else { %>
+    <h3>It appears that you have not added any grades for this section</h3>
+    <% } %>
+    <form action="/users/addGrade" id="formz">
+        <div>
+            <label for="Score">* Score:</label>
+            <input type="text" name="Score" id="Score"
+                   placeholder="Enter the scrore you received" required="required" />
+        </div>
+        <div>
+            <label for="maxscore">Possible Score:</label>
+            <input type="text" name="MaxScore" id="MaxScore"
+                   placeholder="Enter max score you could have gotten" />
+            <input type="hidden" name="category_id" value="<%=category[i].Id%>">
+        </div>
+        </br>
+        </br>
+        <button name="enroll_id" value="<%= enroll %>" type="submit" class="button hvr-border-fade">Add Grade</button>
+        </br>
+        </br>
+    </form>
+    </br>
+    </br>
+    <% } %>
+
+
+    </br>
+    <% } else { %>
+    <Legend>Your Grades In This Class</Legend>
+    <h2 style="color: orange"> It appears you have not added any categories to this class!</h2>
+    <a href="/users/createCategory/?enroll_id=<%= enroll %>" class="button hvr-border-fade">Add a category</a>
+    <% } %>
+</div>
+
+<% include partials/footer %>
+</html>
